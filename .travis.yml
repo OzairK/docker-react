@@ -1,0 +1,14 @@
+# any time we need to work with docker we need super user level permissions controls
+sudo: required
+
+# tell travis we need docker
+services: 
+  - docker
+
+before_install:
+  - docker build -t ozair/docker-react -f Dockerfile.dev .
+
+script:
+# the -e CI=true flag is used so that the npm run test exits properly and doesn't just 
+# sit there with the result of the tests
+  - docker run -e CI=true ozair/docker-react npm run test
