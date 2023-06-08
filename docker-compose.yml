@@ -1,29 +1,9 @@
-# this is the version of docker-compose we are planning on using
 version: '3'
+
 services:
- # we can name the service whatever we want
- web:
-   # if we had a file named Dockerfile we could just do build: . but we don't so we have to do more
-   build:
-     # where are we looking for all the files
-     context: .
-     dockerfile: Dockerfile.dev
-   ports:
-     - "3005:3000"
-   volumes:
-     # this is a bookmark saying leave this folder alone and dont sync this with local machine
-     - /app/node_modules
-     # take the content of this directory in the local machine and sync it with the container directory app
-     - .:/app
- tests:
-   # if we had a file named Dockerfile we could just do build: . but we don't so we have to do more
-   build:
-     # where are we looking for all the files
-     context: .
-     dockerfile: Dockerfile.dev
-   volumes:
-     # this is a bookmark saying leave this folder alone and dont sync this with local machine
-     - /app/node_modules
-     # take the content of this directory in the local machine and sync it with the container directory app
-     - .:/app
-   command: ["npm", "run", "test"]
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
