@@ -32,5 +32,5 @@ deploy:
   branch: master
 
 # the values for these keys are stored in travis ci under our project
-access_key_id: $AWS_ACCESS_KEY
+access_key_id: "$AWS_ACCESS_KEY"
 secret_access_key: "$AWS_SECRET_KEY"
