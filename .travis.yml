@@ -16,21 +16,19 @@ script:
 # travis come pre configured to be able to deployto certain hostring providers like AWS and digital ocean
 # get these setting from the elastic bean stalk application we created
 deploy:
- provider: elasticbeanstalk
- region: "us-east-1"
- app: "docker-react-application"
- env: "Docker-react-application-env"
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react-application"
+  env: "Docker-react-application-env"
 #  travis ci will zip all are files and put it in the following s3 bucket
 #  whenevr that s3 bucket is updated aws will redeploy app
 #  search s3 for it
- bucket_name: "elasticbeanstalk-us-east-1-972110721974"
+  bucket_name: "elasticbeanstalk-us-east-1-972110721974"
 #  by default this is the app name
- bucket_path: "docker-react-application"
- 
+  bucket_path: "docker-react-application"
 #  lets travis ci know to deploy only when there is a change in master branch
- on:
-  branch: master
-
+  on:
+    branch: master
 # the values for these keys are stored in travis ci under our project
-secret_access_key: "$AWS_SECRET_KEY"
-access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
+  access_key_id: $AWS_ACCESS_KEY  AWS_ACCESS_KEY
